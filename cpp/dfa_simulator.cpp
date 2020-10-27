@@ -9,6 +9,7 @@
 #include <fstream>
 using namespace std;
 
+// todo: file validation
 class DFASimulator {
     string filename;
     int startState;
