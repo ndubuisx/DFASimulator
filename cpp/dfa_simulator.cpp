@@ -10,6 +10,7 @@
 using namespace std;
 
 // todo: file validation
+// todo: comments
 class DFASimulator {
     string filename;
     int startState;
@@ -88,11 +89,13 @@ void DFASimulator::checkDFAInput(string str) {
 
     string key = std::to_string(currentState) + alphabet;
 
-    try {
+    if (Transitions.find(key) != Transitions.end()) {
+      // input string is valid
       currentState = Transitions[key];
       transition += key + std::to_string(currentState) + " ";
-    }
-    catch(int e) {
+    } else {
+      // invalid input string
+      cout << "The input string is invalid (i.e. it contains one or more character(s) that does not exist in the alphabet for the DFA\n";
       return;
     }
   }
